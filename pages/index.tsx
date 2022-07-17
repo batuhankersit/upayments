@@ -1,5 +1,5 @@
 import ProductFilter from "@up-components/ProductFilter";
-import { GetServerSideProps } from 'next'
+import {GetServerSideProps} from 'next'
 import CategoriesService from "@up-api/CategoriesService";
 import {Categories} from "@up-models/CategoriesModel";
 import {Products} from "@up-models/ProductsModel";
@@ -51,5 +51,5 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         }
     }
 }
-
+Home.Layout = true
 export default Home
