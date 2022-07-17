@@ -7,8 +7,8 @@ import {API_URL} from "@up-constants/urls";
 /**
  * Return list of categories
  */
-const categoriesList = (): Promise<AxiosResponse<ApiResponse<Categories>>> => {
-    return httpService.get<ApiResponse<Categories>>(
+const categoriesList = (): Promise<AxiosResponse<ApiResponse<Categories[]>>> => {
+    return httpService.get<ApiResponse<Categories[]>>(
         `${API_URL}categories`
     )
 }

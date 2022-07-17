@@ -6,13 +6,19 @@ import {Categories} from "@up-models/CategoriesModel";
 
 interface Props {
     data:any[],
-    labelValue?:string
+    labelValue?:string,
+    onChange:Function
 }
 
-const SelectBox = ({data,labelValue='name'}:Props) => {
+const SelectBox = ({data,labelValue='name',onChange}:Props) => {
     const [selected, setSelected] = useState<{[key: string]: any} | undefined>()
+
+    const onItemSelect = (val:any) => {
+        onChange && onChange(val)
+        setSelected(val)
+    }
     return (
-        <Listbox value={selected} onChange={setSelected}>
+        <Listbox value={selected} onChange={onItemSelect}>
             <div className="relative mt-1">
                 <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
                     <span className="block truncate cursor-pointer">{selected?.[labelValue] || 'Categories'}</span>
@@ -26,7 +32,7 @@ const SelectBox = ({data,labelValue='name'}:Props) => {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
-                    <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                    <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-10">
                         {data?.map((item, index) => (
                             <Listbox.Option
                                 key={index}
