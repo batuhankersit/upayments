@@ -7,6 +7,7 @@ import ProductList from "@up-components/ProductList";
 import ProductsService from "@up-api/ProductsService";
 import {useState} from "react";
 import PlusIcon from "@up-components/Icons/PlusIcon";
+import Link from "next/link";
 
 interface Props {
     categories:Categories[]
@@ -35,7 +36,11 @@ const Home = ({categories,products}:Props) => {
         .filter(x => searchFilter ? x.name.toLowerCase().includes(searchFilter) : true) : productData}
     />
         <div className={"fixed bottom-0 w-full flex h-[54px] bg-dark justify-end pr-5 z-[11]"}>
-           <PlusIcon className={"w-10 h-10 bg-black rounded-full p-[5px]"} />
+           <Link href={"/product/create"}>
+               <a className={"p-[5px]"}>
+                   <PlusIcon className={"w-10 h-10 bg-black rounded-full"} />
+               </a>
+           </Link>
         </div>
     </>
   )

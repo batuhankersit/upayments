@@ -7,7 +7,7 @@ import {Categories} from "@up-models/CategoriesModel";
 interface Props {
     data:any[],
     labelValue?:string,
-    onChange:Function
+    onChange?:Function
 }
 
 const SelectBox = ({data,labelValue='name',onChange}:Props) => {

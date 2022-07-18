@@ -23,7 +23,17 @@ const productDetail = (rewriteId?: string | string[] | undefined): Promise<Axios
     ).catch(() => <AxiosResponse<ApiResponse<Products>>>{})
 }
 
+/**
+ * product create
+ */
+const productCreate = (data: Products): Promise<AxiosResponse<ApiResponse<Products>>> => {
+    return httpService.post<ApiResponse<Products>>(
+        `${API_URL}products/`,data
+    ).catch(() => <AxiosResponse<ApiResponse<Products>>>{})
+}
+
 export default {
     productsList,
-    productDetail
+    productDetail,
+    productCreate
 }
