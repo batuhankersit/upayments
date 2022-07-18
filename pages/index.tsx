@@ -29,8 +29,10 @@ const Home = ({categories,products}:Props) => {
 
   return (
     <>
-    <ProductFilter onFilterSelect={onFilterSelect} onInputChange={onInputChange} categoriesData={categories} />
-    <ProductList productsData={(selectedFilter || searchFilter) ?
+    <ProductFilter onFilterSelect={onFilterSelect}  onInputChange={onInputChange} categoriesData={categories} />
+    <ProductList
+        setProducts={setProducts}
+        productsData={(selectedFilter || searchFilter) ?
         productData
         .filter(x => selectedFilter ? x.category === selectedFilter: true)
         .filter(x => searchFilter ? x.name.toLowerCase().includes(searchFilter) : true) : productData}

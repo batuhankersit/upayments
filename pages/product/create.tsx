@@ -23,10 +23,10 @@ const ProductCreate = ({categories}:Props) => {
     } = methods;
 
     const onFormSubmit = (data:any) => {
-        ProductsService.productCreate(data).then(r => router.push("/"))
+        ProductsService.productCreate(data).then(() => router.push("/"))
     }
     return (
-        <div className={"container px-20 mx-auto flex justify-center"}>
+        <div className={"container px-20 mx-auto flex justify-center py-20"}>
            <div className={"text-center"}>
                <p className={"text-3xl font-bold mb-10"}>Create Product</p>
                <form onSubmit={handleSubmit(onFormSubmit)} className="w-full max-w-7xl min-w-[25rem]">

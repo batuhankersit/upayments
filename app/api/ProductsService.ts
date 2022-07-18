@@ -32,8 +32,19 @@ const productCreate = (data: Products): Promise<AxiosResponse<ApiResponse<Produc
     ).catch(() => <AxiosResponse<ApiResponse<Products>>>{})
 }
 
+/**
+ * Delete product with rewriteId
+ * @param rewriteId
+ */
+const productDelete = (rewriteId?: string | string[] | undefined): Promise<AxiosResponse<ApiResponse<Products>>> => {
+    return httpService.delete<ApiResponse<Products>>(
+        `${API_URL}products/${rewriteId}`
+    ).catch(() => <AxiosResponse<ApiResponse<Products>>>{})
+}
+
 export default {
     productsList,
     productDetail,
-    productCreate
+    productCreate,
+    productDelete
 }
