@@ -1,5 +1,4 @@
 export interface Products {
-    createdAt:number,
     name:string,
     avatar:string,
     developerEmail:string,

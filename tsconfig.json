@@ -48,7 +48,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.js"
+    "**/*.js",
+    "jest.config.js"
   ],
   "exclude": [
     "node_modules",
